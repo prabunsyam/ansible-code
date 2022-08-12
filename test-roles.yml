@@ -1,0 +1,29 @@
+---
+- name: manage webserver
+  hosts: appserver
+  remote_user: centos
+  gather_facts: true
+  become: true
+#  vars_prompt:
+#    name: service_name
+#    prompt: 'enter service name'
+#  vars:
+#     service_name: sshd
+
+  roles:
+  - webserver
+
+
+#- name: manage users
+#  hosts: jenkins
+#  remote_user: centos
+#  gather_facts: false
+#  become: true
+#  tasks:
+#  - name: manage users
+#    user:
+#        name: "{{user_name}}"
+#        state: present
+
+
+

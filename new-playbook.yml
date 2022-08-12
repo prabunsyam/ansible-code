@@ -1,0 +1,8 @@
+
+
+-  name: This will not be counted as a failure
+   command: '/bin/yum install none'
+   ignore_errors: yes
+
+-  name: validate results
+

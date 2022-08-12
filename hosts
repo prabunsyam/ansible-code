@@ -17,7 +17,6 @@
 
 [appserver]
 localhost
-172.31.15.88
 
 #[appserver:vars]
 

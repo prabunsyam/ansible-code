@@ -1,0 +1,43 @@
+---
+
+- name: download WAR package
+  hosts: localhost
+  connection: local
+  become: true
+  gather_facts: false
+
+  tasks:
+  - name: clean the workspace
+    file:
+      path: ./Helloworldwebapp-dev.war
+      state: absent
+
+#  - name: Download from github
+#    git:
+#      repo: 'https://github.com/ganeshhp/helloworldweb.git'
+#      dest: /home/centos/ansible/helloworld
+#      clone: yes
+
+  - name: download war package
+    command: 'curl -uuser1:APe8TNpyXKCb8VLuunDCEJcab2 -O -L "https://ganeshpalnitkar.jfrog.io/artifactory/webapp-package/Helloworldwebapp-dev.war"'
+
+- name: deploy WAR package
+  hosts: appserver
+  remote_user: centos
+  become: true
+  gather_facts: false
+
+  tasks:
+  - name: clean workspace
+    command: 'mv ./Helloworldwebapp-dev.war Helloworldwebapp-dev.war.back'
+    ignore_errors: true
+
+  - name: deployment of WAR
+    copy:
+       src: ./Helloworldwebapp-dev.war
+       dest: /opt/tomcat/webapps/
+
+  - name: start Appserver
+    command: 'sh /opt/tomcat/bin/startup.sh'
+
+

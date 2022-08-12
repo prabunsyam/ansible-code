@@ -1,0 +1,6 @@
+
+  - name: manage users
+    user:
+        name: "{{user_name}}"
+        state: present
+
