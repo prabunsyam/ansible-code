@@ -10,10 +10,10 @@
 
 # Ex 1: Ungrouped hosts, specify before any group headers.
 
-172.31.15.88
+#172.31.15.88
 
 [jenkins]
-172.31.15.88
+#172.31.15.88
 
 [appserver]
 localhost

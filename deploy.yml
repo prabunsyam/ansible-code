@@ -12,14 +12,14 @@
       path: ./Helloworldwebapp-dev.war
       state: absent
 
-#  - name: Download from github
-#    git:
-#      repo: 'https://github.com/ganeshhp/helloworldweb.git'
-#      dest: /home/centos/ansible/helloworld
-#      clone: yes
+  - name: Download from github
+    git:
+      repo: 'https://github.com/ganeshhp/helloworldweb.git'
+      dest: /home/centos/ansible-code/helloworld
+      clone: yes
 
-  - name: download war package
-    command: 'curl -uuser1:APe8TNpyXKCb8VLuunDCEJcab2 -O -L "https://ganeshpalnitkar.jfrog.io/artifactory/webapp-package/Helloworldwebapp-dev.war"'
+#  - name: download war package
+#    command: 'curl -uuser1:APe8TNpyXKCb8VLuunDCEJcab2 -O -L "https://ganeshpalnitkar.jfrog.io/artifactory/webapp-package/Helloworldwebapp-dev.war"'
 
 - name: deploy WAR package
   hosts: appserver
@@ -34,7 +34,7 @@
 
   - name: deployment of WAR
     copy:
-       src: ./Helloworldwebapp-dev.war
+       src: ./helloworld/Helloworldwebapp-dev.war
        dest: /opt/tomcat/webapps/
 
   - name: start Appserver
