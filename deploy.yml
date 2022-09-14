@@ -15,7 +15,7 @@
   - name: Download from github
     git:
       repo: 'https://github.com/ganeshhp/helloworldweb.git'
-      dest: /home/centos/ansible-code/helloworld
+      dest: ./helloworld
       clone: yes
 
 #  - name: download war package
@@ -28,9 +28,9 @@
   gather_facts: false
 
   tasks:
-  - name: clean workspace
-    command: 'mv ./Helloworldwebapp-dev.war Helloworldwebapp-dev.war.back'
-    ignore_errors: true
+#  - name: clean workspace
+#    command: 'mv ./Helloworldwebapp-dev.war Helloworldwebapp-dev.war.back'
+#    ignore_errors: true
 
   - name: deployment of WAR
     copy:
